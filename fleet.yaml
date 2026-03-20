@@ -1,0 +1,9 @@
+defaultNamespace: zm-scpro-message-receiver
+helm:
+  releaseName: zm-scpro-message-receiver
+  chart: ./zm-scpro-message-receiver
+  values:
+    image:
+      repository: ghcr.io/ihmafrica/zm-scpro-message-receiver
+      pullSecrets:
+        - name: ghcr-login

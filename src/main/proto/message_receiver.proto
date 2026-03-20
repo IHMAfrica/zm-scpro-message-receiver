@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package zm.gov.moh.scpro;
+
+option java_package = "zm.gov.moh.zmscpromessagereceiver.grpc";
+option java_outer_classname = "MessageReceiverProto";
+option java_multiple_files = true;
+
+service MessageReceiverService {
+  rpc ReceiveMessages(stream MessageRequest) returns (stream MessageResponse);
+}
+
+message MessageRequest {
+  string message_id    = 1;
+  string payload       = 2;
+  string source_system = 3;
+  string message_type  = 4;
+  string status        = 5;
+}
+
+message MessageResponse {
+  string message_id = 1;
+  bool   success    = 2;
+  string error      = 3;
+}
